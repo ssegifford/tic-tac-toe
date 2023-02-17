@@ -33,16 +33,20 @@ h2 {
 }
 
 .square {  
-    border: 3px solid rgba(2, 11, 143, 0.908);
-    height: 140px;
-    width: 110px;
+    border: 2px solid rgba(2, 11, 143, 0.908);
+    height: 145px;
+    width: 120px;
 }
     
 #reset-button {
+    background-color: blue;
     text-align: center;
+    color: rgb(200, 187, 2);
     font-size: 25px;
+    font-weight: bold;
     border: 1px solid rgb(200, 187, 2);
     height: 55px;
     width: 100px;
     margin: 10px;
+    margin-top: 40px;
 }
