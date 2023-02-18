@@ -46,7 +46,8 @@ function getWinner() {
     let winner = null;
     winningCombos.forEach(function(combo, index) {    
         if (board[combo[0]] && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]){ 
-            winner = board[combo[0]];}  });  
+            winner = board[combo[0]];
+            messages.textContent = win ? `${win} wins the game!` : `It's ${turn}'s turn!`;}  });  
     return winner;
         }
 
