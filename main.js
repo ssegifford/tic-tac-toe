@@ -87,3 +87,6 @@ const handleTurn = event => {
 chain the event listener onto it. addEventListener() takes two arguments, the event to listen for and a callback 
 function to execute when the event is heard*/
 document.getElementById('board').addEventListener('click', handleTurn);
+
+// when reset button is clicked the board is init() all over
+document.getElementById('reset-button').addEventListener('click', init);
