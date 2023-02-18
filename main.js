@@ -9,7 +9,8 @@ let turn = 'X';
 // The Array.from() function will make an array from all elements returned by querySelectorAll
 const squares = Array.from(document.querySelectorAll('#board div'));
 
-
+// retrieves the data in h2 using querySelector
+const messages = document.querySelector('h2');
 
 
 /*----- functions -----*/
@@ -25,6 +26,8 @@ const render = () =>{
         //this sets the text content of the square of the same position to the mark on the board. 
         squares[index].textContent = mark;
         });
+
+    messages.textContent = `It's ${turn}'s turn!`;
 }
 
 init();
@@ -37,8 +40,10 @@ const handleTurn = event => {
         return square === event.target;});
     // new code below
     board[idx] = turn;
-    // check your console logs to make sure it's working!
-    console.log(board);
+
+    // ternary if statement
+    turn = turn === 'X' ? 'O' : 'X';
+    render();
     };
  
     
