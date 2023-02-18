@@ -3,6 +3,9 @@
 /*----- app's state (variables) -----*/
 let board;
 let turn = 'X';
+//creating boolean with ternary statement
+let win;
+
 
 
 /*----- cached element references -----*/
@@ -16,7 +19,7 @@ const messages = document.querySelector('h2');
 /*----- functions -----*/
  //function to initiate game board
 const init = () => {
-    board = ['', '', '','', '', '','', '', ''];    
+    board = ['1', '', '1','', '', '','', '', ''];    
     render();
 }   
 
@@ -26,6 +29,8 @@ const render = () =>{
         //this sets the text content of the square of the same position to the mark on the board. 
         squares[index].textContent = mark;
         });
+        win = board[0] && board[0] === board[1] && board[0] === board[2] ? board[0] : null;
+console.log(win);
 
     messages.textContent = `It's ${turn}'s turn!`;
 }
