@@ -24,7 +24,7 @@ const messages = document.querySelector('h2');
 /*----- functions -----*/
  //function to initiate game board
 const init = () => {
-    board = ['1', '', '1','', '', '','', '', ''];    
+    board = ['', '', '','', '', '','', '', ''];    
     render();
 }   
 
@@ -35,9 +35,8 @@ const render = () =>{
         squares[index].textContent = mark;
         });
         win = board[0] && board[0] === board[1] && board[0] === board[2] ? board[0] : null;
-console.log(win);
-
-    messages.textContent = `It's ${turn}'s turn!`;
+        //nested ternary
+        messages.textContent = win === 'T' ? `That's a tie, queen!` : win ? `${win} wins the game!` : `It's ${turn}'s turn!`;
 }
 
 init();
@@ -47,8 +46,7 @@ function getWinner() {
     winningCombos.forEach(function(combo, index) {    
         if (board[combo[0]] && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]){ 
             winner = board[combo[0]];
-            // nested ternary 
-            messages.textContent = win === 'T' ? `That's a tie, queen!` : win ? `${win} wins the game!` : `It's ${turn}'s turn!`;
+           
         /* EXTENDED VERSION
         if ( win === 'T' ) {
             messages.textContent = `That's a tie, queen!`

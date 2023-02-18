@@ -1,6 +1,11 @@
+html {
+    background-color: black;
+    color: blue ;
+}
+
 body {
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 h2 {
@@ -30,12 +35,15 @@ h2 {
     flex-wrap: wrap;
     height: 432px;
     width: 432px;
+    
 }
 
 .square {  
-    border: 2px solid rgba(2, 11, 143, 0.908);
+    border: 2px solid blue;
     height: 145px;
     width: 120px;
+    font-weight: bold;
+    font-size: 200px;
 }
     
 #reset-button {
