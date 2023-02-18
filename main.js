@@ -1,4 +1,3 @@
-console.log('Your JS is linked up. Be the person you needed when you were little.');
 
 /*----- constants -----*/
 /*----- app's state (variables) -----*/
@@ -11,12 +10,7 @@ let turn = 'X';
 const squares = Array.from(document.querySelectorAll('#board div'));
 
 
-/*----- event listeners -----*/
-/*Listen for the click on the board. We will need to “grab” an HTML element using getElementById() and then 
-chain the event listener onto it. addEventListener() takes two arguments, the event to listen for and a callback 
-function to execute when the event is heard*/
 
-//document.getElementById('board').addEventListener('click', handleTurn);
 
 /*----- functions -----*/
  //function to initiate game board
@@ -38,11 +32,18 @@ init();
 /* callback function for clicks. The ‘event’ is the click, the ‘target’ is the element on which the event took place —
  the square we’ve clicked on. findIndex() finds the index of the square in our squares array that matches the square the 
  user clicked! */
-// const handleTurn = event => {
-//     let idx = squares.findIndex(function(square) {
-//         return square === event.target;});
-//     // new code 
-//     belowboard[idx] = turn;
-//     // check your console logs to make sure it's working!
-//     console.log(board);
-//     };
+const handleTurn = event => {
+    let idx = squares.findIndex(function(square) {
+        return square === event.target;});
+    // new code below
+    board[idx] = turn;
+    // check your console logs to make sure it's working!
+    console.log(board);
+    };
+ 
+    
+/*----- event listeners -----*/
+/*Listen for the click on the board. We will need to “grab” an HTML element using getElementById() and then 
+chain the event listener onto it. addEventListener() takes two arguments, the event to listen for and a callback 
+function to execute when the event is heard*/
+document.getElementById('board').addEventListener('click', handleTurn);
