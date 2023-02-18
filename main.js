@@ -1,5 +1,10 @@
 
 /*----- constants -----*/
+/*We have 3 (rows) + 3 (columns) + 2 (diagonals) = 8 possible ways to win. Let’s make an array of the indexes of winning 
+combinations. This is where you may find the 3 x 3 shape of our board array helpful for finding the index numbers of winning 
+combos*/
+const winningCombos = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+
 /*----- app's state (variables) -----*/
 let board;
 let turn = 'X';
@@ -37,6 +42,14 @@ console.log(win);
 
 init();
 
+function getWinner() {
+    let winner = null;
+    winningCombos.forEach(function(combo, index) {    
+        if (board[combo[0]] && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]){ 
+            winner = board[combo[0]];}  });  
+    return winner;
+        }
+
 /* callback function for clicks. The ‘event’ is the click, the ‘target’ is the element on which the event took place —
  the square we’ve clicked on. findIndex() finds the index of the square in our squares array that matches the square the 
  user clicked! */
@@ -48,8 +61,11 @@ const handleTurn = event => {
 
     // ternary if statement
     turn = turn === 'X' ? 'O' : 'X';
+    win = getWinner();  //call getWinner() and assign its output to the win variable
     render();
     };
+
+    
  
     
 /*----- event listeners -----*/
