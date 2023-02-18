@@ -47,8 +47,21 @@ function getWinner() {
     winningCombos.forEach(function(combo, index) {    
         if (board[combo[0]] && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]){ 
             winner = board[combo[0]];
-            messages.textContent = win ? `${win} wins the game!` : `It's ${turn}'s turn!`;}  });  
-    return winner;
+            // nested ternary 
+            messages.textContent = win === 'T' ? `That's a tie, queen!` : win ? `${win} wins the game!` : `It's ${turn}'s turn!`;
+        /* EXTENDED VERSION
+        if ( win === 'T' ) {
+            messages.textContent = `That's a tie, queen!`
+        }     
+        else if (win) { 
+            messages.textContent = `${win} wins the game!`
+        }       
+        else {
+            messages.textContent = `It's ${turn}'s turn!`
+} */
+        }  }); 
+         
+    return winner ? winner : board.includes('') ? null : 'T';   //ternary if/if-else
         }
 
 /* callback function for clicks. The ‘event’ is the click, the ‘target’ is the element on which the event took place —
